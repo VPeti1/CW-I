@@ -12,7 +12,7 @@
 using namespace std;
 
 int main() {
-    std::cout << "\033[2J\033[1;1H";
+
     //checking internet
     int status = system("ping -c 1 google.com");
     if (status != 0) {
