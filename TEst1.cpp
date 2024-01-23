@@ -12,7 +12,7 @@
 using namespace std;
 
 int main() {
-
+    system("Title CW-I");
     //checking internet
     int status = system("ping -c 1 google.com");
     if (status != 0) {
@@ -25,7 +25,6 @@ int main() {
     else {
         //internet check passed
         std::cout << "\033[2J\033[1;1H";
-        system("Title CW-I");
         //Intro here
         std::cout << "****************************|CW-I|**************************** \n";
         std::cout << "By VPeti \n";
@@ -48,30 +47,30 @@ int main() {
         ifstream ifile;
         ifile.open("C:\\ProgramData\\chocolatey\\bin\\choco.exe");
         if (ifile) {
-            //if exists it runst the program
-            std::cout << "Previus instance detected \n";
+            //if exists it runs the program
+            //std::cout << "Previus instance detected \n";
             std::cout << "Welcome to CW \n";
             //Choice maker 2000
             std::string input;
-            std::cout << "Please select install type (basic,gamer,custom or debloat): \n ";
+            std::cout << "Please select install type (basic,gamer,custom,developer or debloat): \n ";
             std::cout << "Other options: exit,about \n";
             std::cin >> input;
             if (input == "gamer" || input == "Gamer") {
                 //runs command basic and gamer apps
-                ////system("choco install vlc notepadplusplus phyton winrar jre8 steam epicgameslaucher discord");
+                system("choco install vlc notepadplusplus phyton winrar jre8 steam epicgameslaucher discord -y");
                 //browser selector
                 std::string input;
                 std::cout << "What browser do you want?: \n";
                 std::cout << "(chrome or firefox) \n";
                 std::cin >> input;
-                if (input == "chrome") {
+                if (input == "chrome" || input == "Chrome") {
                     system("choco install googlechrome -y");
                     std::cout << "Install done \n";
                     system("pause");
                     main(); 
                 }
-                else if (input == "firefox") {
-                    system("choco install firefox");
+                else if (input == "firefox" || input == "Firefox") {
+                    system("choco install firefox -y");
                     std::cout << "Install done \n";
                     system("pause");
                     main(); 
@@ -86,7 +85,7 @@ int main() {
             }
             else if (input == "basic" || input == "Basic") {
                 //runs command basic apps
-                system("choco install vlc imgburn notepadplusplus phyton winrar jre8 ");
+                system("choco install vlc imgburn notepadplusplus phyton winrar jre8 -y");
                 std::string input;
                 std::cout << "Do you what libreoffice?: \n";
                 std::cin >> input;
@@ -176,10 +175,7 @@ int main() {
                 std::cout << "Using CPP \n";
                 std::this_thread::sleep_for(std::chrono::seconds(1));
                 std::cout << "\033[2J\033[1;1H";
-                std::cout << "BPS Framework by VPeti_ \n";
-                std::this_thread::sleep_for(std::chrono::seconds(1));
-                std::cout << "\033[2J\033[1;1H";
-                std::cout << "Build number 1.0E \n";
+                std::cout << "Build number v1.2.0 \n";
                 system("pause");
                 main();
 
@@ -199,6 +195,34 @@ int main() {
 
                 }
 
+            else if (input == "developer" || input == "Developer") {
+                system("choco install vlc imgburn notepadplusplus phyton winrar jre8 vscode visualstudio2022community wget msys2 -y");
+                //browser selector
+                std::string input;
+                std::cout << "What browser do you want?: ";
+                std::cout << "(chrome or firefox) \n";
+                std::cin >> input;
+                if (input == "chrome" || input == "Chrome") {
+                    system("choco install googlechrome -y");
+                    std::cout << "Install done ";
+                    system("pause");
+                    main();
+                }
+                else if (input == "firefox" || input == "Firefox") {
+                    system("choco install firefox -y");
+                    std::cout << "Install done ";
+                    system("pause");
+                    main();
+
+                }
+                else {
+                    std::cout << "Install done ";
+                    system("pause");
+                    main();
+                }
+
+            }
+
             
 
             else
@@ -211,7 +235,7 @@ int main() {
         }
 
         else {
-            std::cout << "No previus instance detected \n";
+            std::cout << "No chocolatey detected \n";
             std::this_thread::sleep_for(std::chrono::seconds(1));
             std::cout << "\033[2J\033[1;1H";
             system("pause");
