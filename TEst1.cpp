@@ -16,9 +16,9 @@ int main() {
     //checking internet
     int status = system("ping -c 1 google.com");
     if (status != 0) {
-        //no more interwebs
+        //no more interwebs or adminnnn privs
         std::cout << "\033[2J\033[1;1H";;;
-        std::cout << "No intenet detected! Please connect!" << std::endl;
+        std::cout << "No intenet or admin privileges detected! Please connect to the internet or rerun the program!" << std::endl;
         system("pause");
         main();
     }
@@ -26,10 +26,16 @@ int main() {
         //internet check passed
         std::cout << "\033[2J\033[1;1H";
         //Intro here
-        std::cout << "****************************|CW-I|**************************** \n";
+        std::cout << " ________  ___       __                  ___     \n";
+        std::cout << "|\\   ____\\|\\  \\     |\\  \\               |\\  \\    \n";
+        std::cout << "\\ \\  \\___|\\ \\  \\    \\ \\  \\  ____________\\ \\  \\   \n";
+        std::cout << " \\ \\  \\    \\ \\  \\  __\\ \\  \\|\\____________\\ \\  \\  \n";
+        std::cout << "  \\ \\  \\____\\ \\  \\|\\__\\_\\  \\|____________|\\ \\  \\ \n";
+        std::cout << "   \\ \\_______\\ \\____________\\              \\ \\__\\\n";
+        std::cout << "    \\|_______|\\|____________|               \\|__|\n";
+        std::cout << "\n";
         std::cout << "By VPeti \n";
         system("pause");
-        std::cout << "Loading libraries please wait \n";
         wait1
         std::cout << "\033[2J\033[1;1H";
         std::cout << "Loading: 30% \n";
@@ -48,12 +54,12 @@ int main() {
         ifile.open("C:\\ProgramData\\chocolatey\\bin\\choco.exe");
         if (ifile) {
             //if exists it runs the program
-            //std::cout << "Previus instance detected \n";
-            std::cout << "Welcome to CW \n";
+            std::cout << "Welcome to CW-I \n";
             //Choice maker 2000
             std::string input;
-            std::cout << "Please select install type (basic,gamer,custom,developer or debloat): \n ";
+            std::cout << "Please select install type (basic,gamer,custom,developer or debloat): \n";
             std::cout << "Other options: exit,about \n";
+            std::cout << "You can lauch CWCare-I by typing in care \n";
             std::cin >> input;
             if (input == "gamer" || input == "Gamer") {
                 //runs command basic and gamer apps
@@ -144,10 +150,10 @@ int main() {
             else if (input == "debloat" || input == "Debloat") {
                 system("md C:\CW");
                 //install winaero and unzip
-                system("choco install winaero-tweaker unzip -y");
+                system("choco install winaero-tweaker wget unzip -y");
                 //from here
                 //downloads debloat
-                system("powershell Invoke-WebRequest -Uri https://codeload.github.com/Sycnex/Windows10Debloater/zip/refs/heads/master -OutFile C:\CW\deb.zip");
+                system("wget https://codeload.github.com/Sycnex/Windows10Debloater/zip/refs/heads/master -O C:\\CW\\deb.zip");
                 //extraxxt
                 system("unzip -q C:\CW\deb.zip -d C:\CW");
                 //run & pray
@@ -170,12 +176,12 @@ int main() {
                 std::this_thread::sleep_for(std::chrono::seconds(1));
                 std::cout << "\033[2J\033[1;1H";
                 std::cout << "A new era a new language \n";
-                std::this_thread::sleep_for(std::chrono::seconds(2));
+                std::this_thread::sleep_for(std::chrono::seconds(1));
                 std::cout << "\033[2J\033[1;1H";
                 std::cout << "Using CPP \n";
                 std::this_thread::sleep_for(std::chrono::seconds(1));
                 std::cout << "\033[2J\033[1;1H";
-                std::cout << "Build number v1.2.0 \n";
+                std::cout << "Build number v1.3.0 \n";
                 system("pause");
                 main();
 
@@ -223,11 +229,32 @@ int main() {
 
             }
 
+            else if (input == "care" || input == "Care") {
+                clear
+                std::cout << "  ________  ___       __   ________  ________  ________  _______                  ___     " << std::endl;
+                std::cout << "|\\   ____\\|\\  \\     |\\  \\|\\   ____\\|\\   __  \\|\\   __  \\|\\  ___ \\                |\\  \\    " << std::endl;
+                std::cout << "\\ \\  \\___|\\ \\  \\    \\ \\  \\ \\  \\___|\\ \\  \\|\\  \\ \\  \\|\\  \\ \\   __/|   ____________\\ \\  \\   " << std::endl;
+                std::cout << " \\ \\  \\    \\ \\  \\  __\\ \\  \\ \\  \\    \\ \\   __  \\ \\   _  _\\ \\  \\_|/__|\\____________\\ \\  \\  " << std::endl;
+                std::cout << "  \\ \\  \\____\\ \\  \\|\\__\\_\\  \\ \\  \\____\\ \\  \\ \\  \\ \\  \\\\  \\\\ \\  \\_|\\ \\|____________|\\ \\  \\ " << std::endl;
+                std::cout << "   \\ \\_______\\ \\____________\\ \\_______\\ \\__\\ \\__\\ \\__\\\\ _\\\\ \\_______\\              \\ \\__\\" << std::endl;
+                std::cout << "    \\|_______|\\|____________|\\|_______|\\|__|\\|__|\\|__|\\|__|\\|_______|               \\|__|" << std::endl;
+                system("pause");
+                system("choco install wget -y");
+                system("wget https://raw.githubusercontent.com/VPeti1/CWCare-I/master/CWCare-I.exe -O C:\\CW\\care.exe");
+                const char* exePath = "C:\\CW\\care.exe";
+                // Run cwcare
+                int result = std::system(exePath);
+                std::cout << "Cleaning finished";
+                system("pause");
+                clear
+                main();
+            }
+
             
 
             else
             {
-                //If the user enters something wrong it exits
+                //If the user enters something wrong it resets
                 std::cout << "Try again \n";
                 system("pause");
                 main();
