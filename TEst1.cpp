@@ -256,7 +256,6 @@ int main() {
                 const char* exePath = "C:\\CW\\care.exe";
                 // Run cwcare
                 int result = std::system(exePath);
-                std::cout << "Cleaning finished";
                 system("pause");
                 clear
                 main();
