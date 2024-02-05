@@ -58,10 +58,11 @@ int main() {
             //Choice maker 2000
             std::string input;
             std::cout << "Please select install type (basic,gamer,custom,developer or debloat): \n";
-            std::cout << "Other options: exit,about \n";
+            std::cout << "Other options: exit,about and update \n";
             std::cout << "You can lauch CWCare-I by typing in care \n";
             std::cin >> input;
             if (input == "gamer" || input == "Gamer") {
+                clear
                 //runs command basic and gamer apps
                 system("choco install vlc notepadplusplus phyton winrar jre8 steam epicgameslaucher discord -y");
                 //browser selector
@@ -90,6 +91,7 @@ int main() {
 
             }
             else if (input == "basic" || input == "Basic") {
+                clear
                 //runs command basic apps
                 system("choco install vlc imgburn notepadplusplus phyton winrar jre8 -y");
                 std::string input;
@@ -148,6 +150,7 @@ int main() {
 
             }
             else if (input == "debloat" || input == "Debloat") {
+                clear
                 system("md C:\CW");
                 //install winaero and unzip
                 system("choco install winaero-tweaker wget unzip -y");
@@ -181,29 +184,32 @@ int main() {
                 std::cout << "Using CPP \n";
                 std::this_thread::sleep_for(std::chrono::seconds(1));
                 std::cout << "\033[2J\033[1;1H";
-                std::cout << "Build number v1.3.0 \n";
+                std::cout << "Build number v1.4.0 \n";
                 system("pause");
                 main();
 
 
             }
             else if (input == "exit" || input == "Exit") {
+                clear
                 std::cout << "Goodbye!";
                 wait1
 
             }
             else if (input == "custom" || input == "Custom") {
+                clear
                 std::string input;
                 std::cout << "Enter packages name(s): ";
                 std::cin >> input;
                 system(("cmd /c choco install " + input).c_str());
-system("pause");
-main();
+                system("pause");
+                main();
 
 
                 }
 
             else if (input == "developer" || input == "Developer") {
+                clear
                 system("choco install vlc imgburn notepadplusplus phyton winrar jre8 vscode visualstudio2022community wget msys2 -y");
                 //browser selector
                 std::string input;
@@ -223,6 +229,10 @@ main();
                     main();
 
                 }
+                    
+                
+
+                
                 else {
                     std::cout << "Install done ";
                     system("pause");
@@ -251,7 +261,17 @@ main();
                 clear
                 main();
             }
-
+                
+            else if (input == "update" || input == "Update") {
+                clear
+                std::cout << "Downloading the latest file";
+                system("choco install wget -y");
+                system("wget https://raw.githubusercontent.com/VPeti1/CWAcces/main/CWI.EXE -O %HOMEDRIVE%%HOMEPATH%\\Desktop\\CWI.exe");
+                std::cout << "File downloaded to desktop";
+                std::cout << "Please run the file";
+                system("pause");
+                wait1
+            }
             
 
             else
