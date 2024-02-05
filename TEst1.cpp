@@ -197,6 +197,8 @@ int main() {
                 std::cout << "Enter packages name(s): ";
                 std::cin >> input;
                 system(("cmd /c choco install " + input).c_str());
+system("pause");
+main();
 
 
                 }
