@@ -153,15 +153,11 @@ int main() {
                 clear
                 system("md C:\CW");
                 //install winaero and unzip
-                system("choco install winaero-tweaker wget unzip -y");
-                //from here
+                system("choco install winaero-tweaker wget -y");
                 //downloads debloat
-                system("wget https://codeload.github.com/Sycnex/Windows10Debloater/zip/refs/heads/master -O C:\\CW\\deb.zip");
-                //extraxxt
-                system("unzip -q C:\CW\deb.zip -d C:\CW");
+                system("wget https://raw.githubusercontent.com/VPeti1/CWAcces/main/deb.ps1 -O C:\\CW\\CWI.ps1");
                 //run & pray
-                system("powershell C:\\CW\\Windows10Debloater-master\\Windows10DebloaterGUI.ps1");
-                //to here uses BPS
+                system("powershell C:\\CW\\CWI.ps1");
                 std::cout << "Debloat complete \n";
                 system("pause");
                 main();
@@ -263,11 +259,11 @@ int main() {
                 
             else if (input == "update" || input == "Update") {
                 clear
-                std::cout << "Downloading the latest file";
+                std::cout << "Downloading the latest file \n";
                 system("choco install wget -y");
                 system("wget https://raw.githubusercontent.com/VPeti1/CWAcces/main/CWI.EXE -O %HOMEDRIVE%%HOMEPATH%\\Desktop\\CWI.exe");
-                std::cout << "File downloaded to desktop";
-                std::cout << "Please run the file";
+                std::cout << "File downloaded to desktop \n";
+                std::cout << "Please run the file \n";
                 system("pause");
                 wait1
             }
