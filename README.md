@@ -7,7 +7,7 @@ A simple chocolatey wrapper with extra features
 ## 3 Run the .sln file 
 ## 4 Click build 
 
-# WHat are its features?
+# What are its features?
 ## It has basic,gamer,developer and custom install modes
 ## It can debloat your computer with minimal hassle
 ## Its fully open-source
