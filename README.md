@@ -14,7 +14,7 @@ A simple chocolatey wrapper with extra features
 ## It can clean your computer
 
 # OS requirements
-## OS: Windows 10 1990 for regular operation Windows 11 for best operation
+## OS: Windows 10 1990 or above for regular operation Windows 11 for best operation
 
 # Additional repositories
 ## https://github.com/VPeti1/CWCare-I
