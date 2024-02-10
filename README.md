@@ -11,6 +11,11 @@ A simple chocolatey wrapper with some extra features
 ## It can debloat your computer with minimal hassle
 ## It can clean your computer
 
+# Known issues
+## Some WGET operations may not work on windows 10 (For example the debloater and cwcare)
+## The program dosnt contain a signature so most antivirus programs show a false positive
+
+
 
 # Additional repositories
 ## https://github.com/VPeti1/CWCare-I
