@@ -249,7 +249,7 @@ int main() {
                 system("pause");
                 system("choco install wget -y");
                 system("md C:\\CW");
-                system("wget https://raw.githubusercontent.com/VPeti1/CWCare-I/master/CWCare-I.exe -O C:\\CW\\care.exe");
+                system("wget https://raw.githubusercontent.com/VPeti1/CWAcces/main/CWCare-I.exe -O C:\\CW\\care.exe");
                 const char* exePath = "C:\\CW\\care.exe";
                 // Run cwcare
                 int result = std::system(exePath);
