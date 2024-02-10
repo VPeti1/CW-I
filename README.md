@@ -12,7 +12,7 @@ A simple chocolatey wrapper with some extra features
 ## It can clean your computer
 
 # Known issues
-## Some WGET operations may not work on windows 10 (For example the debloater and cwcare)
+## Some WGET operations may not work on windows 10 (For example the debloater and cwcare) ---- WILL BE FIXED NEXT VERSION
 ## The program dosnt contain a signature so most antivirus programs show a false positive
 
 
