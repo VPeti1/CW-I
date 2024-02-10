@@ -151,7 +151,7 @@ int main() {
             }
             else if (input == "debloat" || input == "Debloat") {
                 clear
-                    system("md C:\CW");
+                system("md C:\\CW");
                 //install winaero and unzip
                 system("choco install winaero-tweaker wget -y");
                 //downloads debloat
@@ -248,6 +248,7 @@ int main() {
                 std::cout << "    \\|_______|\\|____________|\\|_______|\\|__|\\|__|\\|__|\\|__|\\|_______|               \\|__|" << std::endl;
                 system("pause");
                 system("choco install wget -y");
+                system("md C:\\CW");
                 system("wget https://raw.githubusercontent.com/VPeti1/CWCare-I/master/CWCare-I.exe -O C:\\CW\\care.exe");
                 const char* exePath = "C:\\CW\\care.exe";
                 // Run cwcare
