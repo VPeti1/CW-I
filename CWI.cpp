@@ -63,8 +63,8 @@ int main() {
             std::cin >> input;
             if (input == "gamer" || input == "Gamer") {
                 clear
-                    //runs command basic and gamer apps
-                    system("choco install vlc notepadplusplus phyton winrar jre8 steam epicgameslaucher discord -y");
+                //runs command basic and gamer apps
+                system("choco install vlc notepadplusplus phyton winrar jre8 steam epicgameslaucher discord -y");
                 //browser selector
                 std::string input;
                 std::cout << "What browser do you want?: \n";
@@ -92,8 +92,8 @@ int main() {
             }
             else if (input == "basic" || input == "Basic") {
                 clear
-                    //runs command basic apps
-                    system("choco install vlc imgburn notepadplusplus phyton winrar jre8 -y");
+                //runs command basic apps
+                system("choco install vlc imgburn notepadplusplus phyton winrar jre8 -y");
                 std::string input;
                 std::cout << "Do you what libreoffice?: \n";
                 std::cin >> input;
@@ -188,13 +188,13 @@ int main() {
             }
             else if (input == "exit" || input == "Exit") {
                 clear
-                    std::cout << "Goodbye!";
+                std::cout << "Goodbye!";
                 wait1
 
             }
             else if (input == "custom" || input == "Custom") {
                 clear
-                    std::string input;
+                std::string input;
                 std::cout << "Enter packages name(s): ";
                 std::cin >> input;
                 system(("cmd /c choco install " + input).c_str());
@@ -206,7 +206,7 @@ int main() {
 
             else if (input == "developer" || input == "Developer") {
                 clear
-                    system("choco install vlc imgburn notepadplusplus phyton winrar jre8 vscode visualstudio2022community wget msys2 -y");
+                system("choco install vlc imgburn notepadplusplus phyton winrar jre8 vscode visualstudio2022community wget msys2 -y");
                 //browser selector
                 std::string input;
                 std::cout << "What browser do you want?: ";
@@ -239,7 +239,7 @@ int main() {
 
             else if (input == "care" || input == "Care") {
                 clear
-                    std::cout << "  ________  ___       __   ________  ________  ________  _______                  ___     " << std::endl;
+                std::cout << "  ________  ___       __   ________  ________  ________  _______                  ___     " << std::endl;
                 std::cout << "|\\   ____\\|\\  \\     |\\  \\|\\   ____\\|\\   __  \\|\\   __  \\|\\  ___ \\                |\\  \\    " << std::endl;
                 std::cout << "\\ \\  \\___|\\ \\  \\    \\ \\  \\ \\  \\___|\\ \\  \\|\\  \\ \\  \\|\\  \\ \\   __/|   ____________\\ \\  \\   " << std::endl;
                 std::cout << " \\ \\  \\    \\ \\  \\  __\\ \\  \\ \\  \\    \\ \\   __  \\ \\   _  _\\ \\  \\_|/__|\\____________\\ \\  \\  " << std::endl;
@@ -253,12 +253,12 @@ int main() {
                 system("cmd /c C:\\CW\\care.bat");
                 system("pause");
                 clear
-                    main();
+                main();
             }
 
             else if (input == "update" || input == "Update") {
                 clear
-                    std::cout << "Downloading the latest file \n";
+                std::cout << "Downloading the latest file \n";
                 system("choco install wget -y");
                 system("wget https://raw.githubusercontent.com/VPeti1/CWAcces/main/CWI.EXE -O %HOMEDRIVE%%HOMEPATH%\\Desktop\\CWI.exe");
                 std::cout << "File downloaded to desktop \n";
