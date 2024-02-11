@@ -180,7 +180,7 @@ int main() {
                 std::cout << "Using CPP \n";
                 std::this_thread::sleep_for(std::chrono::seconds(1));
                 std::cout << "\033[2J\033[1;1H";
-                std::cout << "Build number v1.4.0 \n";
+                std::cout << "Build number v1.5.0 \n";
                 system("pause");
                 main();
 
