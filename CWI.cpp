@@ -95,7 +95,7 @@ int main() {
                 //runs command basic apps
                 system("choco install vlc imgburn notepadplusplus phyton winrar jre8 -y");
                 std::string input;
-                std::cout << "Do you what libreoffice?: \n";
+                std::cout << "Do you want libreoffice?: \n";
                 std::cin >> input;
                 if (input == "yes" || input == "Yes") {
                     system("choco install libreoffice -y");
@@ -180,7 +180,7 @@ int main() {
                 std::cout << "Using CPP \n";
                 std::this_thread::sleep_for(std::chrono::seconds(1));
                 std::cout << "\033[2J\033[1;1H";
-                std::cout << "Build number v1.5.0 \n";
+                std::cout << "Build number v1.6.0 \n";
                 system("pause");
                 main();
 
@@ -261,8 +261,7 @@ int main() {
                 std::cout << "Downloading the latest file \n";
                 system("choco install wget -y");
                 system("wget https://raw.githubusercontent.com/VPeti1/CWAcces/main/CWI.EXE -O %HOMEDRIVE%%HOMEPATH%\\Desktop\\CWI.exe");
-                std::cout << "File downloaded to desktop \n";
-                std::cout << "Please run the file \n";
+                system("cmd /c %HOMEDRIVE%%HOMEPATH%\\Desktop\\CWI.exe");
                 system("pause");
                 wait1
             }

@@ -23,3 +23,5 @@ Simple Windows cleaner
 Simple Windows debloater
 ## https://github.com/VPeti1/OpenCW
 Linux port of CW-I
+## https://github.com/VPeti1/CW-I_Hungarian
+Hungarian translation
