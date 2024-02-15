@@ -18,7 +18,7 @@ This is not a bug, this is intended and used for enabling the devmenu and skipch
 
 # Devmenu and skipcheck mode keybinds
 ## To enable the devmenu press ESCAPE on startup within 1 second
-## To skipcheck mode press S on startup within 1 second
+## To enable skipcheck mode press S on startup within 1 second
 
 # Additional repositories
 ## https://github.com/VPeti1/CWCare-I
