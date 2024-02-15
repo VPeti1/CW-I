@@ -5,24 +5,168 @@
 #include <thread>
 #include <Windows.h>
 #include <fstream>
-#include <filesystem>
 #include<stdio.h>
+#include <conio.h>
+#define wgeti system("choco install wget -y");
 #define wait1 std::this_thread::sleep_for(std::chrono::seconds(1));
 #define clear std::cout << "\033[2J\033[1;1H";
 using namespace std;
 
-int main() {
-    system("Title CW-I");
-    //checking internet
+bool checkInternet() {
     int status = system("ping -c 1 google.com");
-    if (status != 0) {
-        //no more interwebs or adminnnn privs
-        std::cout << "\033[2J\033[1;1H";;;
-        std::cout << "No intenet or admin privileges detected! Please connect to the internet or rerun the program!" << std::endl;
-        system("pause");
-        main();
+    return (status == 0);
+}
+
+void depinstall() {
+    std::cout << "No chocolatey detected \n";
+    std::this_thread::sleep_for(std::chrono::seconds(1));
+    std::cout << "\033[2J\033[1;1H";
+    system("pause");
+    std::cout << "Installing chocolatey. \n";
+    std::cout << "DO NOT DISCONNECT FROM THE INTERNET OR CLOSE THIS WINDOW! \n";
+    //install choco
+    system("powershell Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))");
+    //creates the file
+    std::cout << "Dependency install complete\n";
+    system("pause");
+}
+
+void browserselect() {
+    std::string input;
+    std::cout << "What browser do you want? (chrome or firefox) \n: ";
+    std::cin >> input;
+
+    if (input == "chrome" || input == "Chrome") {
+        system("choco install googlechrome -y");
+        std::cout << "Install done ";
+        wait1
+    }
+    else if (input == "firefox" || input == "Firefox") {
+        system("choco install firefox -y");
+        std::cout << "Install done ";
+        wait1
     }
     else {
+        std::cout << "Invalid browser name. No browser installation performed.\n";
+        wait1
+    }
+}
+
+void devActive() {
+    cout << "Enter a devflag \n";
+    cout << "(browserinstall,depinstall,wgetinstall,adddummychoco) \n";
+    std::string input;
+    std::cin >> input;
+    if (input == "browserinstall" || input == "Browserinstall") {
+        browserselect();
+
+    }
+    if (input == "depinstall" || input == "Depinstall") {
+        depinstall();
+    }
+    if (input == "wgetinstall" || input == "Wgetinstall") {
+        wgeti
+        system("pause");
+
+    }
+    if (input == "adddummychoco" || input == "Adddummychoco") {
+        std::ofstream outfile("C:\\ProgramData\\chocolatey\\bin\\choco.exe");
+    }
+    else {
+        cout << "No valid flag was entered. Continuing operation \n";
+        //goto main
+    }
+}
+
+void devMenuCheck() {
+    const int ESC = 27;
+    bool escPressed = false;
+
+    // Wait for ESC key or timeout
+    //By the way why didnt i use the other timer???????
+    auto start = std::chrono::high_resolution_clock::now();
+    while (!escPressed) {
+        if (_kbhit()) {
+            char key = _getch();
+            if (key == ESC) {
+                escPressed = true;
+            }
+        }
+
+        auto now = std::chrono::high_resolution_clock::now();
+        auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(now - start).count();
+        if (duration >= 1000) {
+            break; // 1s Timeout
+        }
+    }
+
+    if (escPressed) {
+        std::cout << " ________  ___       __                  ___     \n";
+        std::cout << "|\\   ____\\|\\  \\     |\\  \\               |\\  \\    \n";
+        std::cout << "\\ \\  \\___|\\ \\  \\    \\ \\  \\  ____________\\ \\  \\   \n";
+        std::cout << " \\ \\  \\    \\ \\  \\  __\\ \\  \\|\\____________\\ \\  \\  \n";
+        std::cout << "  \\ \\  \\____\\ \\  \\|\\__\\_\\  \\|____________|\\ \\  \\ \n";
+        std::cout << "   \\ \\_______\\ \\____________\\              \\ \\__\\\n";
+        std::cout << "    \\|_______|\\|____________|               \\|__|\n";
+        std::cout << "\n";
+        std::cout << "DEVMENU ACTIVE \n";
+        wait1
+        devActive();
+        
+    }
+    else {
+        //goto main :)
+    }
+}
+
+
+
+
+
+int main() {
+    int skip = 0;
+    system("Title CW-I");
+    devMenuCheck();
+    char key;
+    bool sKeyPressed = false;
+    auto startTime = std::chrono::high_resolution_clock::now();
+
+    while (true) {
+        if (_kbhit()) {
+            key = _getch();
+            if (key == 's' || key == 'S') {
+                sKeyPressed = true;
+                break;
+            }
+        }
+
+        auto currentTime = std::chrono::high_resolution_clock::now();
+        auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(currentTime - startTime).count();
+
+        if (duration >= 1000) {
+            break;
+        }
+    }
+
+    if (sKeyPressed) {
+        skip = 1;
+        cout << "Checks skipped";
+    }
+    //checking internet
+    // If 'skip' is not equal to 1, perform internet check
+    if (skip != 1) {
+        if (checkInternet()) {
+            std::cout << "Internet check passed!" << std::endl;
+        }
+        else {
+            // No internet or admin privileges detected
+            std::cout << "\033[2J\033[1;1H";
+            std::cout << "No internet or admin privileges detected! Please connect to the internet or rerun the program." << std::endl;
+            system("pause");
+            main();
+        }
+    }
+
         //internet check passed
         std::cout << "\033[2J\033[1;1H";
         //Intro here
@@ -66,28 +210,7 @@ int main() {
                 //runs command basic and gamer apps
                 system("choco install vlc notepadplusplus phyton winrar jre8 steam epicgameslaucher discord -y");
                 //browser selector
-                std::string input;
-                std::cout << "What browser do you want?: \n";
-                std::cout << "(chrome or firefox) \n";
-                std::cin >> input;
-                if (input == "chrome" || input == "Chrome") {
-                    system("choco install googlechrome -y");
-                    std::cout << "Install done \n";
-                    system("pause");
-                    main();
-                }
-                else if (input == "firefox" || input == "Firefox") {
-                    system("choco install firefox -y");
-                    std::cout << "Install done \n";
-                    system("pause");
-                    main();
-
-                }
-                else {
-                    std::cout << "Install done \n";
-                    system("pause");
-                    main();
-                }
+                browserselect();
 
             }
             else if (input == "basic" || input == "Basic") {
@@ -100,52 +223,12 @@ int main() {
                 if (input == "yes" || input == "Yes") {
                     system("choco install libreoffice -y");
                     //install browser
-                    std::string input;
-                    std::cout << "What browser do you want?: \n";
-                    std::cout << "(chrome or firefox) \n";
-                    std::cin >> input;
-                    if (input == "chrome" || input == "Chrome") {
-                        system("choco install googlechrome -y");
-                        std::cout << "Install done \n";
-                        system("pause");
-                        main();
-                    }
-                    else {
-                        system("choco install firefox -y");
-                        std::cout << "Install done \n";
-                        system("pause");
-                        main();
-
-                    }
-
+                    browserselect();
                 }
 
                 else {
                     //browser selector
-                    std::string input;
-                    std::cout << "What browser do you want?: ";
-                    std::cout << "(chrome or firefox) \n";
-                    std::cin >> input;
-                    if (input == "chrome" || input == "Chrome") {
-                        system("choco install googlechrome -y");
-                        std::cout << "Install done ";
-                        system("pause");
-                        main();
-                    }
-                    else if (input == "firefox" || input == "Firefox") {
-                        system("choco install firefox -y");
-                        std::cout << "Install done ";
-                        system("pause");
-                        main();
-
-                    }
-                    else {
-                        std::cout << "Install done ";
-                        system("pause");
-                        main();
-                    }
-
-
+                    browserselect();
                 }
 
             }
@@ -153,7 +236,7 @@ int main() {
                 clear
                 system("md C:\\CW");
                 //install winaero and unzip
-                system("choco install winaero-tweaker wget -y");
+                system("choco install wget -y");
                 //downloads debloat
                 system("wget https://raw.githubusercontent.com/VPeti1/CWAcces/main/deb.ps1 -O C:\\CW\\CWI.ps1");
                 //run & pray
@@ -180,7 +263,7 @@ int main() {
                 std::cout << "Using CPP \n";
                 std::this_thread::sleep_for(std::chrono::seconds(1));
                 std::cout << "\033[2J\033[1;1H";
-                std::cout << "Build number v1.6.0 \n";
+                std::cout << "Build number v1.7.0 \n";
                 system("pause");
                 main();
 
@@ -208,32 +291,7 @@ int main() {
                 clear
                 system("choco install vlc imgburn notepadplusplus phyton winrar jre8 vscode visualstudio2022community wget msys2 -y");
                 //browser selector
-                std::string input;
-                std::cout << "What browser do you want?: ";
-                std::cout << "(chrome or firefox) \n";
-                std::cin >> input;
-                if (input == "chrome" || input == "Chrome") {
-                    system("choco install googlechrome -y");
-                    std::cout << "Install done ";
-                    system("pause");
-                    main();
-                }
-                else if (input == "firefox" || input == "Firefox") {
-                    system("choco install firefox -y");
-                    std::cout << "Install done ";
-                    system("pause");
-                    main();
-
-                }
-
-
-
-
-                else {
-                    std::cout << "Install done ";
-                    system("pause");
-                    main();
-                }
+                browserselect();
 
             }
 
@@ -277,20 +335,10 @@ int main() {
         }
 
         else {
-            std::cout << "No chocolatey detected \n";
-            std::this_thread::sleep_for(std::chrono::seconds(1));
-            std::cout << "\033[2J\033[1;1H";
-            system("pause");
-            std::cout << "Installing chocolatey. \n";
-            std::cout << "DO NOT DISCONNECT FROM THE INTERNET OR CLOSE THIS WINDOW! \n";
-            //install choco with BPS
-            system("powershell Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))");
-            //creates the file
-            std::cout << "Dependency install complete\n";
-            system("pause");
+            depinstall();
             main();
         }
     }
-}
+
 
 
