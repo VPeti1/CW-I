@@ -1,4 +1,4 @@
-# README for signer
+# README for signer (DEPRECATED)
 This is the guide to sign CW-I on your local machine
 
 # How to sign?

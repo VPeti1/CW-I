@@ -1,7 +1,13 @@
 # CW-I
 A simple chocolatey wrapper with some extra features
 
-# How to build with VS?
+# How to compile with g++ (MINGW)?
+
+## Download the "CWI.cpp" file 
+## Edit the code to your liking
+## Type in g++ main.cpp (-static)
+
+# How to build with VS (DEPRECATED)?
 ## Clone the repo
 ## Open the .sln file 
 ## Click build 
