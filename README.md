@@ -20,8 +20,4 @@ This is not a bug, this is intended and used for enabling the devmenu and skipch
 ## To enable the devmenu press ESCAPE on startup within 1 second
 ## To enable skipcheck mode press S on startup within 1 second
 
-# Additional repositories
-## https://github.com/VPeti1/OpenCW
-Linux port of CW-I
-## https://github.com/VPeti1/CW-I_Hungarian
-Hungarian translation
+
