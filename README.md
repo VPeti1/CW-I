@@ -1,10 +1,25 @@
 # CW-I
-A simple chocolatey wrapper with some extra features
+A simple package mananger wrapper with some extra features
 
-# How to build with VS?
+# How to build with VS (Legacy for Windows)?
 ## Clone the repo
 ## Open the .sln file 
 ## Click build 
+
+# How to build with MINGW (Windows)?
+# Open MSYS2
+# Install mingw and git
+pacman -S mingw-w64-x86_64-gcc git
+# Clone the repo
+git clone https://github.com/VPeti1/CW-I.git
+# Compile the source code
+g++ -static main.cpp -o CW-I.exe
+
+# How to build with g++ (Linux) ?
+## Clone the repo
+## Compile the source code
+g++ main.cpp
+
 
 # What are its features?
 ## It has basic,gamer,developer and custom install modes
